@@ -1,3 +1,35 @@
+#
+
+```
+npx create-react-app nwitter
+
+https://github.com/new
+
+https://github.com/kangtae49/nwitter
+
+
+
+git remote add origin https://github.com/kangtae49/nwitter
+git pull -u origin master
+```
+
+# firebase
+
+```
+firebase.google.com
+go to console
+create project
+
+off google 애널리틱스
+프로젝트 만들기
+웹으로앱추가
+앱등록
+```
+
+```
+npm install --save firebase
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
