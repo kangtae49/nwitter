@@ -39,7 +39,19 @@ nwitter01@gmail.com
 ```
 https://fontawesome.com/
 
+# 배포
+```
+package.json
+"homepage": "https://kangtae49.github.io/nwitter"
+npm i gh-pages
 
+"scripts":{
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+}
+
+npm run deploy
+```
 
 # Getting Started with Create React App
 
