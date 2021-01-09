@@ -52,6 +52,14 @@ npm i gh-pages
 
 npm run deploy
 ```
+# rule
+```
+allow read, write: if request.auth != null;
+```
+https://console.developers.google.com/apis/credentials
+
+
+
 
 # Getting Started with Create React App
 
