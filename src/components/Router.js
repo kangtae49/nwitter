@@ -10,10 +10,10 @@ import Home from 'routes/Home';
 import Profile from 'routes/Profile';
 import Navigation from 'components/Navigation';
 
-function AppRouter({ isLogginedIn, userObj }) {
+function AppRouter({ refreshUser, isLogginedIn, userObj }) {
   return (
     <Router>
-      {isLogginedIn && <Navigation />}
+      {isLogginedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLogginedIn ? (
           <>
@@ -21,7 +21,7 @@ function AppRouter({ isLogginedIn, userObj }) {
               <Home userObj={userObj} />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
             <Redirect from="*" to="/" />
           </>
