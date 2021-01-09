@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 function Home({ userObj }) {
   const [nweet, setNweet] = useState('');
   const [nweets, setNweets] = useState([]);
+  const [attachment, setAttachment] = useState();
   // const getNweets = async () => {
   //   const dbNweets = await dbService.collection('nweets').get();
   //   dbNweets.forEach((document) => {
@@ -43,6 +44,23 @@ function Home({ userObj }) {
     setNweet(value);
   };
 
+  const onFileChange = (event) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
+    };
+    reader.readAsDataURL(theFile);
+  };
+
+  const onClearAttachment = () => setAttachment(null);
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -53,7 +71,14 @@ function Home({ userObj }) {
           maxLength={120}
           value={nweet}
         />
+        <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={onClearAttachment}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {nweets.map((nw) => (
